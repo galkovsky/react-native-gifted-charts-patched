@@ -12,6 +12,9 @@ const Cap = props => {
     capRadiusFromProps,
     capBottom
   } = props;
+
+
+
   return (
     <View
       style={{
@@ -25,13 +28,13 @@ const Cap = props => {
         backgroundColor:
           capColorFromItem ?? capColorFromProps ?? BarDefaults.capColor,
         borderTopLeftRadius:
-            !capBottom ??capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+            (!capBottom ? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius : undefined),
         borderTopRightRadius:
-            !capBottom ?? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+            (!capBottom ? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius : undefined),
         borderBottomLeftRadius:
-            capBottom ??capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+            (capBottom ? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius : undefined),
         borderBottomRightRadius:
-            capBottom ?? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+            (capBottom ? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius : undefined),
       }}
     />
   );
