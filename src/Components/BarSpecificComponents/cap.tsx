@@ -25,9 +25,13 @@ const Cap = props => {
         backgroundColor:
           capColorFromItem ?? capColorFromProps ?? BarDefaults.capColor,
         borderTopLeftRadius:
-          capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+            !capBottom ??capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
         borderTopRightRadius:
-          capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+            !capBottom ?? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+        borderBottomLeftRadius:
+            capBottom ??capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
+        borderBottomRightRadius:
+            capBottom ?? capRadiusFromItem ?? capRadiusFromProps ?? BarDefaults.capRadius,
       }}
     />
   );
