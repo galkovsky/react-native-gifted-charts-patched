@@ -10,12 +10,14 @@ const Cap = props => {
     capColorFromProps,
     capRadiusFromItem,
     capRadiusFromProps,
+    capBottom
   } = props;
   return (
     <View
       style={{
         position: 'absolute',
         width: '100%',
+        bottom: capBottom ? 0: undefined,
         height:
           capThicknessFromItem ??
           capThicknessFromProps ??

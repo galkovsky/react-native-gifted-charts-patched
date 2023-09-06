@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, Animated, Text, ColorValue} from 'react-native';
+import {Animated, ColorValue, Text, TouchableOpacity, View} from 'react-native';
 import ThreeDBar from '../Components/ThreeDBar';
 import AnimatedBar from '../Components/AnimatedBar';
 import LinearGradient from 'react-native-linear-gradient';
@@ -51,6 +51,7 @@ type Props = {
   cappedBars?: boolean;
   capThickness?: number;
   capColor?: ColorValue;
+  bottomCapColor?: ColorValue;
   capRadius?: number;
   showXAxisIndices: boolean;
   xAxisIndicesHeight: number;
@@ -282,14 +283,25 @@ const RenderBars = (props: Props) => {
             item.frontColor || props.frontColor || 'black',
           ]}>
           {props.cappedBars && item.value ? (
-            <Cap
-              capThicknessFromItem={item.capThickness}
-              capThicknessFromProps={props.capThickness}
-              capColorFromItem={item.capColor}
-              capColorFromProps={props.capColor}
-              capRadiusFromItem={item.capRadius}
-              capRadiusFromProps={props.capRadius}
-            />
+              <>
+                <Cap
+                    capThicknessFromItem={item.capThickness}
+                    capThicknessFromProps={props.capThickness}
+                    capColorFromItem={item.capColor}
+                    capColorFromProps={props.capColor}
+                    capRadiusFromItem={item.capRadius}
+                    capRadiusFromProps={props.capRadius}
+                />
+                <Cap
+                    capBottom={true}
+                    capThicknessFromItem={item.capThickness}
+                    capThicknessFromProps={props.capThickness}
+                    capColorFromItem={item.bottomCapColor}
+                    capColorFromProps={props.bottomCapColor}
+                    capRadiusFromItem={item.capRadius}
+                    capRadiusFromProps={props.capRadius}
+                />
+              </>
           ) : null}
         </LinearGradient>
         {(item.barBackgroundPattern || props.barBackgroundPattern) && (

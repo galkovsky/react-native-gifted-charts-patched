@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  ColorValue,
-  LayoutAnimation,
-  Platform,
-  UIManager,
-} from 'react-native';
+import {ColorValue, LayoutAnimation, Platform, UIManager, View,} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Svg, {Defs, Rect} from 'react-native-svg';
 import Cap from '../Components/BarSpecificComponents/cap';
@@ -32,6 +26,7 @@ type propTypes = {
   cappedBars?: boolean;
   capThickness?: number;
   capColor?: ColorValue;
+  bottomCapColor?: ColorValue;
   capRadius?: number;
   horizontal: boolean;
   intactTopLabel: boolean;
@@ -186,14 +181,25 @@ const Animated2DWithGradient = (props: propTypes) => {
                   },
                 ]}>
                 {props.cappedBars && item.value ? (
-                  <Cap
-                    capThicknessFromItem={item.capThickness}
-                    capThicknessFromProps={props.capThickness}
-                    capColorFromItem={item.capColor}
-                    capColorFromProps={props.capColor}
-                    capRadiusFromItem={item.capRadius}
-                    capRadiusFromProps={props.capRadius}
-                  />
+                    <>
+                      <Cap
+                          capThicknessFromItem={item.capThickness}
+                          capThicknessFromProps={props.capThickness}
+                          capColorFromItem={item.capColor}
+                          capColorFromProps={props.capColor}
+                          capRadiusFromItem={item.capRadius}
+                          capRadiusFromProps={props.capRadius}
+                      />
+                      <Cap
+                          capBottom={true}
+                          capThicknessFromItem={item.capThickness}
+                          capThicknessFromProps={props.capThickness}
+                          capColorFromItem={item.bottomCapColor}
+                          capColorFromProps={props.bottomCapColor}
+                          capRadiusFromItem={item.capRadius}
+                          capRadiusFromProps={props.capRadius}
+                      />
+                    </>
                 ) : null}
               </View>
             ) : (

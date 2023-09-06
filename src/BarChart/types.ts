@@ -241,6 +241,7 @@ export type itemType = {
   disablePress?: any;
   capThickness?: number;
   capColor?: ColorValue;
+  bottomCapColor?: ColorValue;
   capRadius?: number;
   labelComponent?: Function;
   barBorderRadius?: number;
