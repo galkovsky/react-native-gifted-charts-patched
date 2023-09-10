@@ -2723,6 +2723,7 @@ export const LineChart = (props: LineChartPropsType) => {
 
   const remainingScrollViewProps = {
     onScroll: (ev: any) => {
+      console.log("Scroll!!!!!!!!!")
       if (
         pointerConfig &&
         pointerConfig.activatePointersOnLongPress &&

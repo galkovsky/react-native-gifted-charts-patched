@@ -361,6 +361,7 @@ const BarAndLineChartsWrapper = (props: BarAndLineChartsWrapperTypes) => {
         showsHorizontalScrollIndicator={showScrollIndicator}
         indicatorStyle={indicatorColor}
         onContentSizeChange={() => {
+          console.log("SIZE CHANGE !!!!!!!!!")
           if (scrollRef.current && scrollToEnd) {
             scrollRef.current.scrollToEnd({animated: scrollAnimation});
           } else if (scrollRef.current && scrollToIndex) {
